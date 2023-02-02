@@ -4,9 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 import { selectTopics } from '../features/topics/topicsSlice.js'
 import { useSelector, useDispatch } from "react-redux";
-//import { addCard } from "../features/cards/cardsSlice";
+import { addCard } from "../features/cards/cardsSlice";
 import { addQuizToTopicId } from "../features/quizzes/quizzesSlice";
-// import { createNewQuiz } from '../features/quizzes/quizzesSlice.js';
 
 
 export default function NewQuizForm() {
@@ -25,11 +24,11 @@ export default function NewQuizForm() {
 
     const cardIds = [];
 
-    // cards.forEach((card) => {
-    //   let cardId = uuidv4();
-    //   cardIds.push(cardId);
-    //   dispatch(addCard({ ...card, id: cardId }));
-    // });
+    cards.forEach((card) => {
+      let cardId = uuidv4();
+      cardIds.push(cardId);
+      dispatch(addCard({ ...card, id: cardId }));
+    });
 
     let quizId = uuidv4();
 
